@@ -1,4 +1,10 @@
 N = int(input())
 arr = []
-for _ in range(N):
-    arr = list(map(int,input().split(" ")))
+arr = list(map(int,input().split(" ")))
+
+sortArr = sorted(list(set(arr)))
+dictionary = dict()
+for index in range(len(sortArr)):
+    dictionary[sortArr[index]] = index
+for x in arr:
+    print(dictionary[x],end=" ")

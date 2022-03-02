@@ -7,8 +7,11 @@ def dfs(graph,start):
     while stack:
         x = stack.pop()
         if x not in visited:
+            # print(x,stack,sorted(graph[x]))
+
             visited.append(x)
-            stack = stack +graph[x]
+            stack = stack +list(reversed(graph[x]))
+            stack = stack + graph[x]
     return visited
 def bfs(graph, start):
     queue = deque([start])
@@ -33,6 +36,11 @@ if __name__ == '__main__':
             graph[b] = graph[b]+[a]
         else:
             graph[b] = [a]
-
-    print(dfs(graph,V))
-    print(bfs(graph,V))
+    # print(graph)
+    result1 = dfs(graph,V)
+    result2 = bfs(graph,V)
+    for x in result1:
+        print(x,end=" ")
+    print()
+    for x in result2:
+        print(x,end=" ")

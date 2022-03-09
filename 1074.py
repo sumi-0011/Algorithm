@@ -12,7 +12,7 @@ def solutuion(N, r,c):
         c -= 2**N
         result = solutuion(N,r,c) + (2**N) ** 2 * 1
     #3
-    elif c < 2 **N:
+    elif c < 2 **ㅔN:
         r -= 2 ** N
         result = solutuion(N,r,c) + (2**N) ** 2 * 2
     else:

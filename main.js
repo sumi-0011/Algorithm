@@ -22,29 +22,10 @@
 // }
 function solution(s) {
   var answer = -1;
-  let flag = true; //match유지
-  while (flag && s.length > 0) {
-    if (s.length % 2 == 1 || s.length == 0) {
-      flag = false;
-      break;
-    }
-    let i = 0;
-    for (i = 0; i < s.length; i++) {
-      if (i == s.length - 1) {
-        flag = false;
-      }
-      if (s[i] == s[i + 1]) {
-        let regex = new RegExp(s[i] + s[i], "g");
-        s = s.replace(regex, "");
-        break;
-      }
-    }
-  }
-  if (flag && s.length == 0) {
-    return 1;
-  } else {
-    return 0;
-  }
+
+  // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+  
+  return answer;
 }
 s = "baabaa";
 s2 = "cdcd";

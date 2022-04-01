@@ -1,35 +1,25 @@
-// function solution(s) {
-//   var answer = -1;
-//   reg =
-//     /a{2}|b{2}|c{2}|d{2}|e{2}|f{2}|g{2}|h{2}|i{2}|j{2}|k{2}|l{2}|n{2}|m{2}|o{2}|p{2}|q{2}|r{2}|v{2}|s{2}|t{2}|u{2}|v{2}|w{2}|x{2}|y{2}|z{2}/g;
-//   // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-//   while (s.match(reg) != null) {
-//     s = s.replace(reg, "");
-//     if (s.length % 2 == 1) {
-//       return 0;
-//     }
-//     if (s.length == 0) {
-//       return 1;
-//     }
-//   }
-//   if (s.length == 0) {
-//     return 1;
-//   } else {
-//     return 0;
-//   }
-//   console.log(s.match(reg));
-//   return 0;
-// }
 function solution(s) {
-  var answer = -1;
-
-  // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-  
-  return answer;
+  let list = s.slice(2, s.length - 2).split("},{");
+  let set = new Set();
+  let dict = {};
+  for (let x of list) {
+    let numList = x.split(",");
+    for (number of numList) {
+      let n = parseInt(number);
+      set.add(n);
+      if (n in dict) dict[n] += 1;
+      else dict[n] = 1;
+    }
+  }
+  let result = Array.from(set);
+  result.sort(function (a, b) {
+    return dict[b] - dict[a];;
+  });
+  console.log(result);
+  console.log(dict);
+  return result;
 }
-s = "baabaa";
-s2 = "cdcd";
-console.log(solution(s));
-console.log(solution(s2));
+var result = solution("{{2},{2,1},{2,1,3},{2,1,3,4}}");
+console.log(result);
 
-// document.querySelector("#result").innerHTML = solution(s);
+document.querySelector("#result").innerHTML = result;
